@@ -37,7 +37,7 @@ public class DetailActivity extends AppCompatActivity {
         switch (index){
             case  0: return  R.drawable.peach;
             case 1: return  R.drawable.tomato;
-            case 2: return  R.drawable.tomato;
+            case 2: return  R.drawable.squash;
             default: return  -1;
         }
     }
