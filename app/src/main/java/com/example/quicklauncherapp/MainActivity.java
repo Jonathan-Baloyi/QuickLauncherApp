@@ -15,6 +15,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Button getDataBtn = (Button) findViewById(R.id.getDataBtn);
+
+        getDataBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent getDataIntent = new Intent(getApplication(), GetDataActivity.class);
+                startActivity(getDataIntent);
+            }
+        });
+
         // Reference to the button
         Button secondActivity = (Button) findViewById(R.id.secondActivityBtn);
 
@@ -22,9 +32,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent startIntent = new Intent(getApplicationContext(), SecondActivity.class);
-
-                EditText t = (EditText) findViewById(R.id.editText);
-                startIntent.putExtra("second",t.getText().toString());
                 startActivity(startIntent);
             }
         });
