@@ -1,6 +1,7 @@
 package com.example.quicklauncherapp;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -23,9 +24,23 @@ public class MainActivity extends AppCompatActivity {
                 Intent startIntent = new Intent(getApplicationContext(), SecondActivity.class);
 
                 EditText t = (EditText) findViewById(R.id.editText);
-                System.out.println(t);
-                startIntent.putExtra("com.example.quicklauncherapp.SOMETHING",t.getText().toString());
+                startIntent.putExtra("second",t.getText().toString());
                 startActivity(startIntent);
+            }
+        });
+
+        // The button will launch a browser
+        Button googleBtn = (Button) findViewById(R.id.googleBtn);
+        googleBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String google = "https://gmail.com";
+                Uri webAddress = Uri.parse(google);
+                Intent goToGoogle = new Intent(Intent.ACTION_VIEW, webAddress);
+
+                if( goToGoogle.resolveActivity(getPackageManager()) != null){
+                    startActivity(goToGoogle);
+                }
             }
         });
     }

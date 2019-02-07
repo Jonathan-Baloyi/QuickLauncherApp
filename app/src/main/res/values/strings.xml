@@ -1,3 +1,21 @@
 <resources>
     <string name="app_name">QuickLauncherApp</string>
+
+    <string-array name="items">
+        <item>peach</item>
+        <item>tomato</item>
+        <item>squash</item>
+    </string-array>
+
+    <string-array name="prices">
+        <item>R10</item>
+        <item>R20</item>
+        <item>R30</item>
+    </string-array>
+
+    <string-array name="descriptions">
+        <item>Fresh from Limpopo, South africa</item>
+        <item>Fresh from zz2</item>
+        <item>Fresh from cape town</item>
+    </string-array>
 </resources>

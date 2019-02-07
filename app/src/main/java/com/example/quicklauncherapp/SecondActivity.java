@@ -1,20 +1,33 @@
 package com.example.quicklauncherapp;
 
+import android.content.res.Resources;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 
 public class SecondActivity extends AppCompatActivity {
 
+    ListView myListView;
+    String[] items;
+    String[] prices;
+    String[] descriptions;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
 
-        if(getIntent().hasExtra("com.example.quicklauncherapp.SOMETHING")) {
-            TextView tv = (TextView) findViewById(R.id.textView);
-            String text = getIntent().getExtras().getString("com.example.quicklauncherapp.SOMETHING");
-            tv.setText(text);
-        }
+        Resources res = getResources();
+        myListView = (ListView) findViewById(R.id.listView);
+        items = res.getStringArray(R.array.items);
+        prices = res.getStringArray(R.array.prices);
+        descriptions = res.getStringArray(R.array.descriptions);
+
+        ItemAdapter itemAdapter = new ItemAdapter(this, items, prices, descriptions);
+        myListView.setAdapter(itemAdapter);
+
+        //myListView.setAdapter(new ArrayAdapter<String>(this, R.layout.list_view_detail,items));
+
     }
 }
